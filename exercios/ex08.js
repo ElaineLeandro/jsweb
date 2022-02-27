@@ -12,3 +12,45 @@ String: “10 20 20 8 25 3 0 30 1”
 Retorno: [3, 7] (Significa que ele bateu três vezes seu recorde de melhor pontuação e a pior pontuação
 aconteceu no sétimo jogo.)
  */
+
+
+/*function maiorPontuacao(maior,menor) {
+    var meuArray= [5,10,20,15,22,25,12,25,25];
+    var maior = Math.max.apply(null, meuArray );
+    var menor = Math.min.apply(null, meuArray );
+  
+   
+  console.log(maior, menor)
+    
+  }
+  maiorPontuacao()
+
+
+  let stringPontuacoes = "30, 40, 20, 4, 51, 25, 42, 38, 56, 0"  
+  Inicio da resolução com a lista de array, ainda faltando o retorno "comparar os valores um a um e irá retornar um
+vetor com o número de vezes que ele bateu seu recorde de maior número de pontos e quando fez seu pior
+jogo. (Número do pior jogo)"
+  
+  */ 
+ 
+ 
+function avaliaPontuacoes (stringPontuacoes) {
+    let pontuacoes = stringPontuacoes.split(", ")
+    let qtdQuebraDeRecords = 0
+    let piorJogo = 1
+    let maiorPontuacao = pontuacoes[0]
+    let menorPontuacao = pontuacoes[0]
+
+    for (let i = 1; i < pontuacoes.length; i++) {
+        if(pontuacoes[i] > maiorPontuacao) {
+            maiorPontuacao = pontuacoes[i]
+            qtdQuebraDeRecords++
+        }else if (pontuacoes[i] < menorPontuacao) {
+            menorPontuacao = pontuacoes[i]
+            piorJogo = i+1;
+        }
+    }
+    return [qtdQuebraDeRecords, piorJogo]
+}
+ 
+console.log(avaliaPontuacoes(stringPontuacoes))
