@@ -9,7 +9,7 @@ seja, que evite a reprovação do aluno. No caso de a nota ser 38, o arredondame
 e o aluno será aprovado.
  */
 
-// Chegamos até aqui
+// Chegamos até ???
 function notaImpacta (nota){
     if( nota < 40 ){
        console.log('Aluno reprovado!')
@@ -21,9 +21,7 @@ function notaImpacta (nota){
   
   
 }
-
 notaImpacta(38)
-
 
 
 // Professor
@@ -50,5 +48,29 @@ classificaAluno(30)
 classificaAluno(38)
 classificaAluno(88)
 classificaAluno(61)
+
+//Solução do Walli outra forma
+const arredondarNota = nota => {
+    if (nota < 40) {
+        const proximoMultiplo = nota - (nota % 5) + 5
+
+        if (proximoMultiplo - nota < 3) {
+            return proximoMultiplo
+        }
+
+        return nota
+    }
+
+    return nota
+}
+
+const statusAlunoAprovacao = nota => {
+    const notaArredondada = arredondarNota(nota)
+    if (notaArredondada >= 40) {
+        return 'Aprovado'
+    }
+
+    return 'Reprovado'
+}
 
 
